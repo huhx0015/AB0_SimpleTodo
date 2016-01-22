@@ -7,10 +7,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-/**
- * Created by Michael Yoon Huh on 1/16/2016.
+/** -----------------------------------------------------------------------------------------------
+ *  [EditItemActivity] CLASS
+ *  PROGRAMMER: Michael Yoon Huh
+ *  DESCRIPTION: EditItemActivity is an activity class that is used for editing an existing item
+ *  from the ListView in MainActivity.
+ *  -----------------------------------------------------------------------------------------------
  */
 public class EditItemActivity extends AppCompatActivity {
+
+    /** ACTIVITY LIFECYCLE METHODS _____________________________________________________________ **/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

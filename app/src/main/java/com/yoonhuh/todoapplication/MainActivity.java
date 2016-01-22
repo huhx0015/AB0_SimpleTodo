@@ -15,17 +15,30 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
-/**
- * Created by Michael Yoon Huh on 1/16/2016.
+/** -----------------------------------------------------------------------------------------------
+ *  [MainActivity] CLASS
+ *  PROGRAMMER: Michael Yoon Huh
+ *  DESCRIPTION: MainActivity is the main activity class that is used to display a simple to-do list
+ *  using a ListView.
+ *  -----------------------------------------------------------------------------------------------
  */
 
 public class MainActivity extends AppCompatActivity {
 
+    /** CLASS VARIABLES ________________________________________________________________________ **/
+
+    // ACTIVITY VARIABLES
+    private final int REQUEST_CODE = 2016;
+
+    // LISTVIEW VARIABLES
     private ArrayList<String> items;
     private ArrayAdapter<String> itemsAdapter;
     private ListView lvItems;
-    private final int REQUEST_CODE = 1982;
 
+    /** ACTIVITY LIFECYCLE METHODS _____________________________________________________________ **/
+
+    // onCreate(): The initial function that is called when the activity is run. onCreate() only runs
+    // when the activity is first started.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         lvItems = (ListView) findViewById(R.id.lvItems);
         items = new ArrayList<String>();
         readItems();
+
         itemsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
         lvItems.setAdapter(itemsAdapter);
         items.add("First Item");
@@ -41,6 +55,10 @@ public class MainActivity extends AppCompatActivity {
         setupListViewListener();
     }
 
+    /** ACTIVITY METHODS _______________________________________________________________________ **/
+
+    // onActivityResult(): This method is run when focus returns to this activity from another
+    // activity that was started with startActivityForResult().
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
@@ -53,18 +71,18 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    // onCreateOptionsMenu(): Inflate the menu; this adds items to the action bar if it is present.
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.todo, menu);
         return true;
     }
 
+    // onOptionsItemSelected(): Handle action bar item clicks here. The action bar will
+    // automatically handle clicks on the Home/Up button, so long as you specify a parent activity
+    // in AndroidManifest.xml.
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_settings) {
             return true;
@@ -72,16 +90,20 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /** LIST METHODS ___________________________________________________________________________ **/
+
+    // addItem(): Adds a new item to the to-do ListView.
+    public void addItem(View v) {
+        EditText etNewItem = (EditText) findViewById(R.id.etNewItem);
+        String itemText = etNewItem.getText().toString();
+        itemsAdapter.add(itemText);
+        etNewItem.setText("");
+        writeItems();
+    }
+
+    // setupListViewListener(): Sets on item click and long item click listeners for the to-do
+    // ListView.
     private void setupListViewListener() {
-        lvItems.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> adapter, View view, int pos, long id) {
-                items.remove(pos);
-                itemsAdapter.notifyDataSetChanged();
-                writeItems();
-                return true;
-            }
-        });
 
         lvItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -92,16 +114,21 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(editIntent, REQUEST_CODE);
             }
         });
+
+        lvItems.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapter, View view, int pos, long id) {
+                items.remove(pos);
+                itemsAdapter.notifyDataSetChanged();
+                writeItems();
+                return true;
+            }
+        });
     }
 
-    public void addItem(View v) {
-        EditText etNewItem = (EditText) findViewById(R.id.etNewItem);
-        String itemText = etNewItem.getText().toString();
-        itemsAdapter.add(itemText);
-        etNewItem.setText("");
-        writeItems();
-    }
+    /** FILE I/O METHODS _______________________________________________________________________ **/
 
+    // readItems(): Reads the saved items from the text file and loads them into the ArrayList items.
     private void readItems() {
         File filesDir = getFilesDir();
         File todoFile = new File(filesDir, "todo.txt");
@@ -112,6 +139,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    // writeItems(): Saves the existing ArrayList items into a text file.
     private void writeItems() {
         File filesDir = getFilesDir();
         File todoFile = new File(filesDir, "todo.txt");
