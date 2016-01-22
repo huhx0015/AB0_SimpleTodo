@@ -4,6 +4,8 @@ Developer: Michael Yoon Huh
 
 This is a simple Android application that stores the user's TODO list in a ListView.
 
+![simpletodo](https://cloud.githubusercontent.com/assets/1645482/12503704/a62d239e-c08b-11e5-8296-7cb2bb36d6e0.gif)
+
 Submission Checklist
 
 * [x] Can you successfully add and remove items from the todo list within your app?
@@ -15,8 +17,4 @@ Submission Checklist
  
 Notes:
 
-This application demonstrates the simple use of ListViews and saving/retrieving data. 
-
-Preview:
-
-![simpletodo](https://cloud.githubusercontent.com/assets/1645482/12503704/a62d239e-c08b-11e5-8296-7cb2bb36d6e0.gif)
+This application demonstrates the simple use of ListViews and saving/retrieving data.
