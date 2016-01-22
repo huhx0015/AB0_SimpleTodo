@@ -46,12 +46,9 @@ public class MainActivity extends AppCompatActivity {
 
         lvItems = (ListView) findViewById(R.id.lvItems);
         items = new ArrayList<String>();
-        readItems();
-
         itemsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
         lvItems.setAdapter(itemsAdapter);
-        items.add("First Item");
-        items.add("Second Item");
+
         setupListViewListener();
     }
 
@@ -66,7 +63,8 @@ public class MainActivity extends AppCompatActivity {
             String item = data.getExtras().getString("Item");
             int position = data.getExtras().getInt("Position");
             items.set(position, item);
-            itemsAdapter.add(item);
+            itemsAdapter.notifyDataSetChanged();
+            //itemsAdapter.add(item);
             writeItems();
         }
     }
