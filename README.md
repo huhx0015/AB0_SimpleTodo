@@ -1,5 +1,7 @@
 # AB0: Simple Todo
 
+Developer: Michael Yoon Huh
+
 This is a simple Android application that stores the user's TODO list in a ListView.
 
 Submission Checklist
