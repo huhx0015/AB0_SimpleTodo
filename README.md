@@ -1,4 +1,4 @@
-# P0: Simple Todo
+# AB0: Simple Todo
 
 This is a simple Android application that allows users to store the user's TODO list.
 
@@ -19,6 +19,4 @@ This application demonstrates the simple use of ListViews and saving/retrieving 
 
 Walkthrough:
 
-![Simple Todo](https://drive.google.com/file/d/0B_HcsZ_tKzgeS0Y4WlM0YjR4czg/view?usp=sharing)
-
-GIF created with [LiceCap](http://www.cockos.com/licecap/).
+![simpletodo](https://cloud.githubusercontent.com/assets/1645482/12381047/b6459674-bd36-11e5-8c25-b23ea17cb768.gif)
