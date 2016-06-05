@@ -5,11 +5,11 @@ DEVELOPER: Michael Yoon Huh
 ### SIMPLE TODO
 ![simpletodo](https://cloud.githubusercontent.com/assets/1645482/12503704/a62d239e-c08b-11e5-8296-7cb2bb36d6e0.gif)
 
-# Description
+## Description
 
 This is a simple Android application that stores the user's TODO list in a ListView. This application demonstrates the simple use of ListViews and saving/retrieving data.
 
-#  Submission Checklist
+## Submission Checklist
 
 Link: http://courses.codepath.com/snippets/intro_to_android/prework
 
