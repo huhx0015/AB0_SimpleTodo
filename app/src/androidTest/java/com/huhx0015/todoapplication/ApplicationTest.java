@@ -1,4 +1,4 @@
-package com.yoonhuh.todoapplication;
+package com.huhx0015.todoapplication;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
