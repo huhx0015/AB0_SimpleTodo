@@ -1,6 +1,6 @@
 # AB0: Simple Todo
 
-DEVELOPER: Michael Yoon Huh
+DEVELOPER: huhx0015
 
 ### SIMPLE TODO
 ![simpletodo](https://cloud.githubusercontent.com/assets/1645482/12503704/a62d239e-c08b-11e5-8296-7cb2bb36d6e0.gif)
