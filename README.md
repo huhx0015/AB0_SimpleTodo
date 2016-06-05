@@ -11,6 +11,8 @@ This is a simple Android application that stores the user's TODO list in a ListV
 
 #  Submission Checklist
 
+Link: http://courses.codepath.com/snippets/intro_to_android/prework
+
 * [x] Can you successfully add and remove items from the todo list within your app?
 * [x] Did you include support for editing todo items as described above?
 * [x] Does your app persist todo items and retrieve them properly on app restart?
